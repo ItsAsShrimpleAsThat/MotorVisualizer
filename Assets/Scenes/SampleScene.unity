@@ -493,8 +493,71 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ef22a7b843fca684c9529e485b0c3ca9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1863110416}
+    - targetCorrespondingSourceObject: {fileID: 1793383752907081159, guid: ef22a7b843fca684c9529e485b0c3ca9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094639988}
   m_SourcePrefab: {fileID: 100100000, guid: ef22a7b843fca684c9529e485b0c3ca9, type: 3}
+--- !u!1 &1863110414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ef22a7b843fca684c9529e485b0c3ca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1726829242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1863110416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863110414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa195b624c860e744a9d636b2af1f7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 0
+  speed: 0
+  rb: {fileID: 2094639988}
+  isInverted: 0
+--- !u!1 &2094639984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1793383752907081159, guid: ef22a7b843fca684c9529e485b0c3ca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1726829242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2094639988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094639984}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

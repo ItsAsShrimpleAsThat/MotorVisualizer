@@ -11,4 +11,15 @@ public class XRPDrivetrain : MonoBehaviour
     {
         leftMotor.set(speed);
     }
+
+    public void setRightMotor(double speed)
+    {
+        rightMotor.set(speed);
+    }
+
+    public void setBothMotors(double speed)
+    {
+        leftMotor.set(speed);
+        rightMotor.set(speed);
+    }
 }
