@@ -7,9 +7,9 @@ public class XRPMotor : MonoBehaviour
     public float maxSpeed;
     public float speed;
     public Rigidbody rb;
-    public void set()
+    public void set(double speed)
     {
-        
+        this.speed = (float)speed;   
     }
     // Start is called before the first frame update
     void Start()
