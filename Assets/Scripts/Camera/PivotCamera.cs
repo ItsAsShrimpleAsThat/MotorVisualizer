@@ -58,7 +58,7 @@ public class PivotCamera : MonoBehaviour
 
             cam.rotation = Quaternion.Euler(cam_rotation + pivot_rotation);
 
-            pivot.Translate(moveSpeed * (cam.forward * Input.GetAxisRaw("Vertical") + cam.right * Input.GetAxisRaw("Horizontal") + cam.up * Input.GetAxisRaw("Updown")));
+            pivot.Translate(moveSpeed * (cam.forward * Input.GetAxisRaw("Vertical") + cam.right * Input.GetAxisRaw("Horizontal") + cam.up * Input.GetAxisRaw("Updown")), Space.World);
         }
 
         float zoomDelta = Input.mouseScrollDelta.y * zoomSensitivity * Time.deltaTime;
