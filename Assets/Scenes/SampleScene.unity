@@ -427,8 +427,8 @@ MonoBehaviour:
   pivot: {fileID: 484769164}
   sensitivity: 150
   zoom: 10
-  zoomSensitivity: 30
-  panSensitivity: 0.5
+  zoomSensitivity: 15
+  panSensitivity: 0.25
   zoomAffectsPanningSpeed: 1
   zoomPanningFactor: 0.1
   rightIsMostRecentClick: 0

@@ -59,8 +59,8 @@ public class PivotCamera : MonoBehaviour
         }
 
         float zoomDelta = Input.mouseScrollDelta.y * zoomSensitivity * Time.deltaTime;
-        zoom -= zoomDelta;
-        if (zoom < 0) zoom = 0;
+        zoom -= zoomDelta * zoom;
+        if (zoom < 0.1f) zoom = 0.1f; // prevent zoom from going <1 so that the zoom doesn't get stuck at 0;
         cam.localPosition = new Vector3(0, 0, -zoom);
     }
 
