@@ -433,6 +433,7 @@ MonoBehaviour:
   zoomPanningFactor: 0.1
   rightIsMostRecentClick: 0
   shiftWasClickedBeforeMiddleMouseButton: 0
+  moveSpeed: 0.25
   pivot_rotation: {x: 14.2, y: 0, z: 0}
   cam_rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517

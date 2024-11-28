@@ -14,6 +14,7 @@ public class PivotCamera : MonoBehaviour
     public float zoomPanningFactor;
     public bool rightIsMostRecentClick;
     public bool shiftWasClickedBeforeMiddleMouseButton;
+    public float moveSpeed;
 
     public Vector3 pivot_rotation;
     public Vector3 cam_rotation;
@@ -56,6 +57,8 @@ public class PivotCamera : MonoBehaviour
             cam_rotation.x = Mathf.Clamp(cam_rotation.x, -85, 85);
 
             cam.rotation = Quaternion.Euler(cam_rotation + pivot_rotation);
+
+            pivot.Translate(moveSpeed * (cam.forward * Input.GetAxisRaw("Vertical") + cam.right * Input.GetAxisRaw("Horizontal") + cam.up * Input.GetAxisRaw("Updown")));
         }
 
         float zoomDelta = Input.mouseScrollDelta.y * zoomSensitivity * Time.deltaTime;
