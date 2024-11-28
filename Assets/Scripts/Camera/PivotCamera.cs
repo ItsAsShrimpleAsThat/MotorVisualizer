@@ -9,26 +9,49 @@ public class PivotCamera : MonoBehaviour
     public float sensitivity;
     public float zoom;
     public float zoomSensitivity;
+    public bool rightIsMostRecentClick;
 
-    private Vector3 rotation;
+    private Vector3 pivot_rotation;
+    private Vector3 cam_rotation;
+    
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(1)) { rightIsMostRecentClick = true; }
+        if (Input.GetMouseButtonDown(2)) { rightIsMostRecentClick = false; }
+
+        if (Input.GetMouseButton(2) && !rightIsMostRecentClick)
         {
-            cam.parent = null;
-            pivot.position = cam.position + cam.forward * zoom;
+            cam.parent = null;  
+            pivot_rotation += cam_rotation;
+            pivot.position = cam.position + cam.TransformDirection(Vector3.forward) * zoom;
+            cam_rotation = Vector3.zero;
             cam.parent = pivot;
+            cam.localRotation = Quaternion.identity;
 
-            rotation.x -= Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
-            rotation.y += Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime;
+            pivot_rotation.x -= Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
+            pivot_rotation.y += Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime;
 
-            rotation.x = Mathf.Clamp(rotation.x, -85, 85);
+            pivot_rotation.x = Mathf.Clamp(pivot_rotation.x, -85, 85);
 
-            pivot.localRotation = Quaternion.Euler(rotation);
+            pivot.localRotation = Quaternion.Euler(pivot_rotation);
+        }
+        if(Input.GetMouseButton(1) && rightIsMostRecentClick)
+        {
+            cam_rotation.x -= Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
+            cam_rotation.y += Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime;
+
+            cam_rotation.x = Mathf.Clamp(cam_rotation.x, -85, 85);
+
+            cam.rotation = Quaternion.Euler(cam_rotation + pivot_rotation);
         }
 
         float zoomDelta = Input.mouseScrollDelta.y * zoomSensitivity * Time.deltaTime;
         zoom += zoomDelta; 
-        cam.position = cam.position + cam.forward * -zoomDelta;
+        cam.localPosition = new Vector3(0, 0, -zoom);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(pivot.position, 0.5f);
     }
 }
