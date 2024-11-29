@@ -21,6 +21,6 @@ public class DriveDistance : Command
     // Called every time the scheduler runs while the command is scheduled.
     public override void execute()
     {
-        m_driveSubsystem.setLeftMotor(0.5);
+        m_driveSubsystem.setLeftMotor(maxSpeed);
     }
 }

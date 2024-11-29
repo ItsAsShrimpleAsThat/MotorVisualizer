@@ -52,7 +52,6 @@ public class CommandRunner : MonoBehaviour
         activeCommand.end(true);
         activeCommand = null;
 
-        Debug.Log("If this prints, i will not kill myself");
         m_xrpDrivetrain.setLeftMotor(0.0);
     }
 }
