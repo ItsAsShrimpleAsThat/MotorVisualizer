@@ -31,6 +31,6 @@ public class XRPMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.angularVelocity = new Vector3(speed * maxSpeed * (isInverted ? -1 : 1), 0, 0);
+        rb.angularVelocity = rb.transform.right * (speed * maxSpeed * (isInverted ? -1 : 1));
     }
 }

@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Command : MonoBehaviour
+[System.Serializable]
+public abstract class Command
 {
-    public abstract void execute();
-    public abstract void initialize();
-
-    private void Start()
+    public virtual void execute()
     {
-        initialize();
+
+    }
+    public virtual void initialize()
+    {
+
     }
 
-    void FixedUpdate()
+    public virtual bool isFinished()
     {
-        execute();
+        return false;
+    }
+
+    public virtual void end(bool interrupted)
+    {
+
     }
 }

@@ -21,7 +21,7 @@ public class PivotCamera : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftShift) && !Input.GetMouseButtonDown(2)) { shiftWasClickedBeforeMiddleMouseButton = true; }
+        if(Input.GetKey(KeyCode.LeftShift) && !Input.GetMouseButton(2)) { shiftWasClickedBeforeMiddleMouseButton = true; }
         if(Input.GetMouseButtonDown(2) && !Input.GetKey(KeyCode.LeftShift)) { shiftWasClickedBeforeMiddleMouseButton = false; }
         if (Input.GetMouseButtonDown(1)) { rightIsMostRecentClick = true; }
         if (Input.GetMouseButtonDown(2)) { rightIsMostRecentClick = false; }
@@ -30,7 +30,7 @@ public class PivotCamera : MonoBehaviour
         {
             if (shiftWasClickedBeforeMiddleMouseButton)
             {
-                pivot.position += (cam.up * Input.GetAxisRaw("Mouse Y") + cam.right * Input.GetAxisRaw("Mouse X")) * panSensitivity * (zoomAffectsPanningSpeed ? zoom * zoomPanningFactor : 1.0f);
+                pivot.position += (cam.up * -Input.GetAxisRaw("Mouse Y") + cam.right * -Input.GetAxisRaw("Mouse X")) * panSensitivity * (zoomAffectsPanningSpeed ? zoom * zoomPanningFactor : 1.0f);
             }
             else
             {
