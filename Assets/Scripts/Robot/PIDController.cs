@@ -31,7 +31,7 @@ public class PIDController
     public double calculate(double measurement)
     {
         previousError = error;
-        error = -measurement;
+        error = setpoint - measurement;
 
         double errorDerivative = (error - previousError) / Time.fixedDeltaTime;
 
@@ -49,5 +49,16 @@ public class PIDController
         }
 
         return kp * error + ki * accumulatedError + kd * errorDerivative;
+    }
+
+    public double calculate(double measurement, double setpoint)
+    {
+        this.setpoint = setpoint;
+        return calculate(measurement);
+    }
+
+    public void setSetpoint(double setpoint)
+    {
+        this.setpoint = setpoint;
     }
 }
