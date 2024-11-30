@@ -21,7 +21,6 @@ public class DriveDistance : Command
     // Called every time the scheduler runs while the command is scheduled.
     public override void execute()
     {
-        Debug.Log(m_driveSubsystem.getLeftEncoder().ToString() + "   " + m_driveSubsystem.test().ToString());
         m_driveSubsystem.setLeftMotor(maxSpeed);       
     }
 }

@@ -12,6 +12,6 @@ public class Encoder : MonoBehaviour
     public double getRotations()
     {
         //return extraRotations + distance / 360.0;
-        return distance;
+        return distance / 360.0;
     }
 }

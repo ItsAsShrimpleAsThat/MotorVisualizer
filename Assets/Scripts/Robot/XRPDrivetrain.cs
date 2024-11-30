@@ -41,9 +41,4 @@ public class XRPDrivetrain : MonoBehaviour
     {
         return (getLeftEncoder() + getRightEncoder()) / 2.0;
     }
-
-    public double test()
-    {
-        return leftEncoder.previousRotation;
-    }
 }
