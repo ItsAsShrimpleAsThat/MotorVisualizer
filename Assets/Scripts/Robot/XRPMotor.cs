@@ -34,10 +34,10 @@ public class XRPMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rotation += speed * maxSpeed * (isInverted ? -1 : 1);
+        rotation += Mathf.Clamp(speed, -1.0f, 1.0f)* maxSpeed * (isInverted ? -1 : 1);
         rotorTransform.localRotation = Quaternion.Euler(rotation, 0.0f, 0.0f);
 
-        // update encoder- we can't use the rotor's rotation because unity wraps object rotations to 0 when >360
+        // update encoder- we can't use the rotor's transform rotation because unity wraps object rotations to 0 when >360
         if(encoder != null)
         {
             encoder.distance = rotation;
