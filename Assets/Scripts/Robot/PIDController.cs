@@ -16,7 +16,7 @@ public class PIDController
     private double setpoint = 0;
     private double error = 0;
     private double previousError;
-    private double accumulatedError = 0;
+    public double accumulatedError = 0;
 
     private double minIntegral = -1.0;
     private double maxIntegral = 1.0;
@@ -60,5 +60,30 @@ public class PIDController
     public void setSetpoint(double setpoint)
     {
         this.setpoint = setpoint;
+    }
+
+    public void setPID(double p, double i, double d)
+    {
+        kp = p;
+        ki = i;
+        kd = d;
+    }
+
+    public void setPIDiz(double p, double i, double d, double iZone)
+    {
+        kp = p;
+        ki = i;
+        kd = d;
+        this.iZone = iZone;
+    }
+
+    public void setIZone(double iZone)
+    {
+        this.iZone = iZone;
+    }
+
+    public void setiZoneToInfinity()
+    {
+        iZone = double.PositiveInfinity;
     }
 }

@@ -7,6 +7,8 @@ public class DriveDistance : Command
     private XRPDrivetrain m_driveSubsystem;
     private double distance;
     private double maxSpeed;
+
+    private PIDController pid = new PIDController(0.7, 0.01, 0.03);
     
     public DriveDistance(XRPDrivetrain subsystem, double distance, double maxSpeed)
     {
@@ -16,11 +18,16 @@ public class DriveDistance : Command
     }
 
     // Called when the command is initially scheduled.
-    public override void initialize() {}
+    public override void initialize() 
+    {
+        pid.setIZone(2);
+    }
 
     // Called every time the scheduler runs while the command is scheduled.
     public override void execute()
     {
-        m_driveSubsystem.setLeftMotor(maxSpeed);       
+        double speed = pid.calculate(m_driveSubsystem.getLeftEncoder(), distance);
+        m_driveSubsystem.setLeftMotor(speed);
+        Debug.Log(pid.accumulatedError);
     }
 }
