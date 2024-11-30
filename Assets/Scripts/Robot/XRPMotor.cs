@@ -8,6 +8,8 @@ public class XRPMotor : MonoBehaviour
     public float speed;
     public Rigidbody rb;
     public bool isInverted = false;
+
+    public Encoder encoder;
     public void set(double speed)
     {
         this.speed = (float)speed;   
@@ -31,6 +33,20 @@ public class XRPMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.angularVelocity = rb.transform.right * (speed * maxSpeed * (isInverted ? -1 : 1));
+        float angularVelocity = speed * maxSpeed * (isInverted ? -1 : 1);
+        rb.angularVelocity = rb.transform.right * angularVelocity;
+
+        // update encoder- we can't use the rotor's rotation because unity wraps object rotations to 0 when >360
+        if(encoder != null)
+        {
+            if ((rb.transform.localEulerAngles.x - encoder.previousRotation) * Mathf.Sign(angularVelocity) < -180)
+            {
+                encoder.extraRotations += System.Math.Sign(angularVelocity);
+            }
+
+            double distance360 = rb.transform.localEulerAngles.x;
+            encoder.distance = distance360;
+            encoder.previousRotation = rb.transform.localEulerAngles.x;
+        }
     }
 }
