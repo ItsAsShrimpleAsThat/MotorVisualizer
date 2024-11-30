@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PIDSettingsUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TMP_InputField pInput, iInput, dInput, iZoneInput;
+    public Toggle useIZone;
     void Start()
     {
-        
+        SetPIDConstants();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SetPIDConstants()
     {
-        
+        Constants.kp = double.Parse(pInput.text);
+        Constants.ki = double.Parse(iInput.text);
+        Constants.kd = double.Parse(dInput.text);
+        Constants.iZone = double.Parse(iZoneInput.text);
     }
 }
