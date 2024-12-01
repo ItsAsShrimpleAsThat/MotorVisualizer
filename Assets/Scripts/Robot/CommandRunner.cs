@@ -10,6 +10,7 @@ public class CommandRunner : MonoBehaviour
     public Command activeCommand;
     public TMP_InputField distInput, speedInput;
     public Button start, stop;
+    public TMP_Dropdown cmdOptions;
 
     private void FixedUpdate()
     {
@@ -18,6 +19,11 @@ public class CommandRunner : MonoBehaviour
             if (activeCommand.isFinished())
             {
                 activeCommand.end(false);
+                activeCommand = null;
+                m_xrpDrivetrain.setLeftMotor(0.0);
+                start.interactable = true;
+                stop.interactable = false;
+
                 return;
             }
             activeCommand.execute();
@@ -38,7 +44,21 @@ public class CommandRunner : MonoBehaviour
             activeCommand.end(true);
         }
 
-        ScheduleCommand(new DriveDistance(m_xrpDrivetrain, double.Parse(distInput.text), double.Parse(speedInput.text)));
+        double distance = double.Parse(distInput.text);
+        double speed = double.Parse(speedInput.text);
+
+        Command selectedCmd;
+
+        if(cmdOptions.value == 0)
+        {
+            selectedCmd = new EncoderStop(m_xrpDrivetrain, distance, speed);
+        }
+        else
+        {
+            selectedCmd = new DriveDistance(m_xrpDrivetrain, distance, speed);
+        }
+
+        ScheduleCommand(selectedCmd);
 
         start.interactable = false;
         stop.interactable = true;

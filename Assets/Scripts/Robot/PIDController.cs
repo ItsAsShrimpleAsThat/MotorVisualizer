@@ -34,7 +34,7 @@ public class PIDController
         error = setpoint - measurement;
 
         double errorDerivative = (error - previousError) / Time.fixedDeltaTime;
-
+        Debug.Log(errorDerivative * kd);
         // if error is extremely large, reset the accumulated error to limit overshooting from a huuuge integral error ("windup") if iZone is set
         if(System.Math.Abs(error) > iZone)
         {
