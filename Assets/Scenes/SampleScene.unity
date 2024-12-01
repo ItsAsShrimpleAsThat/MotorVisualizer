@@ -6859,6 +6859,7 @@ MonoBehaviour:
   rotorTransform: {fileID: 2094639991}
   rotation: 0
   isInverted: 0
+  motorSpeedRandomness: 0.09
   encoder: {fileID: 1863110418}
 --- !u!114 &1863110418
 MonoBehaviour:
