@@ -6855,11 +6855,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 28.8
-  speed: 0
+  idealSpeed: 0
+  realSpeed: 0
   rotorTransform: {fileID: 2094639991}
   rotation: 0
   isInverted: 0
   motorSpeedRandomness: 0.09
+  motorAcceleration: 0.4
   encoder: {fileID: 1863110418}
 --- !u!114 &1863110418
 MonoBehaviour:
