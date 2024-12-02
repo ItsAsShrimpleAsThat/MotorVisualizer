@@ -12,6 +12,7 @@ public class XRPMotor : MonoBehaviour
     public bool isInverted = false;
     public float motorSpeedRandomness;
     public float motorAcceleration;
+    public float minSpeedToRotate;
 
     public Encoder encoder;
     public void set(double speed)
@@ -23,21 +24,17 @@ public class XRPMotor : MonoBehaviour
     {
         this.isInverted = inverted;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
-        realSpeed = Mathf.MoveTowards(realSpeed, idealSpeed, motorAcceleration);
+        if (Mathf.Abs(idealSpeed) < minSpeedToRotate)
+        {
+            realSpeed = 0;
+        }
+        else
+        {
+            realSpeed = Mathf.MoveTowards(realSpeed, idealSpeed, motorAcceleration);
+        }
         rotation += Mathf.Clamp(realSpeed, -1.0f, 1.0f) * (maxSpeed + Random.Range(-motorSpeedRandomness, motorSpeedRandomness)) * (isInverted ? -1 : 1);
         rotorTransform.localRotation = Quaternion.Euler(rotation, 0.0f, 0.0f);
 

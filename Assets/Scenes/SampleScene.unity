@@ -6862,6 +6862,7 @@ MonoBehaviour:
   isInverted: 0
   motorSpeedRandomness: 0.09
   motorAcceleration: 0.4
+  minSpeedToRotate: 0.05
   encoder: {fileID: 1863110418}
 --- !u!114 &1863110418
 MonoBehaviour:
