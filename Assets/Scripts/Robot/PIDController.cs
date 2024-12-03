@@ -11,6 +11,10 @@ public class PIDController
     public double ki;
     public double kd;
 
+    public double pOutput { get; private set; }
+    public double iOutput { get; private set; }
+    public double dOutput { get; private set; }
+
     public double iZone = double.PositiveInfinity;
 
     private double setpoint = 0;
@@ -48,7 +52,11 @@ public class PIDController
                                                  maxIntegral / ki);
         }
 
-        return kp * error + ki * accumulatedError + kd * errorDerivative;
+        pOutput = kp * error;
+        iOutput = ki * accumulatedError;
+        dOutput = kd * errorDerivative;
+
+        return pOutput + iOutput + dOutput;
     }
 
     public double calculate(double measurement, double setpoint)

@@ -17,7 +17,7 @@ public class XRPMotor : MonoBehaviour
     public Encoder encoder;
     public void set(double speed)
     {
-        this.idealSpeed = (float)speed;   
+        this.idealSpeed = Mathf.Clamp((float)speed, -1.0f, 1.0f);   
     }
 
     public void setInverted(bool inverted)
