@@ -21,7 +21,7 @@ public class EncoderStop : Command
     // Called every time the scheduler runs while the command is scheduled.
     public override void execute()
     {
-        m_driveSubsystem.setLeftMotor(maxSpeed); 
+        m_driveSubsystem.setLeftMotor(maxSpeed * maxSpeed); 
         Debug.Log(m_driveSubsystem.getLeftEncoder());
     }
 

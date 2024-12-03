@@ -59,6 +59,7 @@ public class PIDController
         PIDOutputs.pOutput = pOutput;
         PIDOutputs.iOutput = iOutput;
         PIDOutputs.dOutput = dOutput;
+        PIDOutputs.pidOutput = pOutput + iOutput + dOutput;
 
         return pOutput + iOutput + dOutput;
     }

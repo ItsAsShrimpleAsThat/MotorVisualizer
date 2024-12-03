@@ -11,12 +11,18 @@ public class PIDSettingsUI : MonoBehaviour
     void Start()
     {
         SetPIDConstants();
+        ToggleIZoneInput();
     }
     public void SetPIDConstants()
     {
         Constants.kp = double.Parse(pInput.text);
         Constants.ki = double.Parse(iInput.text);
         Constants.kd = double.Parse(dInput.text);
-        Constants.iZone = double.Parse(iZoneInput.text);
+        Constants.iZone = useIZone.isOn ? double.Parse(iZoneInput.text) : double.PositiveInfinity;
+    }
+
+    public void ToggleIZoneInput()
+    {
+        iZoneInput.interactable = useIZone.isOn;
     }
 }

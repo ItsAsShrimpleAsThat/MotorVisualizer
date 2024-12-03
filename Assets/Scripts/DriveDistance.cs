@@ -27,7 +27,7 @@ public class DriveDistance : Command
     public override void execute()
     {
         double speed = pid.calculate(m_driveSubsystem.getLeftEncoder(), distance);
-        m_driveSubsystem.setLeftMotor(speed);
+        m_driveSubsystem.setLeftMotor(speed * maxSpeed);
         //Debug.Log(Constants.ki);
     }
 }
