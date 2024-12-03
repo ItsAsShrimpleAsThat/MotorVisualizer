@@ -56,6 +56,10 @@ public class PIDController
         iOutput = ki * accumulatedError;
         dOutput = kd * errorDerivative;
 
+        PIDOutputs.pOutput = pOutput;
+        PIDOutputs.iOutput = iOutput;
+        PIDOutputs.dOutput = dOutput;
+
         return pOutput + iOutput + dOutput;
     }
 

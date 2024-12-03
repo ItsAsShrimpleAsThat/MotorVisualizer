@@ -3696,6 +3696,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &770221948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770221950}
+  - component: {fileID: 770221949}
+  m_Layer: 0
+  m_Name: Shuffleboard UI Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &770221949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770221948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f617e1d9684dd141809cb9909deae52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_driveSubsystem: {fileID: 1727350480}
+  encoderDistance: {fileID: 936005056}
+  error: {fileID: 1981096704}
+  pOutput: {fileID: 1318292433}
+  iOutput: {fileID: 1517395780}
+  dOutput: {fileID: 1873236997}
+--- !u!4 &770221950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770221948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803900468
 GameObject:
   m_ObjectHideFlags: 0
@@ -10405,3 +10455,4 @@ SceneRoots:
   - {fileID: 758641366}
   - {fileID: 1727350479}
   - {fileID: 1031734428}
+  - {fileID: 770221950}

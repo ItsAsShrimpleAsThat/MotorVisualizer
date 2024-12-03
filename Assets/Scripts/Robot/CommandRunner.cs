@@ -59,6 +59,7 @@ public class CommandRunner : MonoBehaviour
         }
 
         ScheduleCommand(selectedCmd);
+        PIDOutputs.setpoint = distance;
 
         start.interactable = false;
         stop.interactable = true;
